@@ -14,7 +14,8 @@ int menu_principal(){
       puts("\n\t 1 - Calcular area de figuras planas");
       puts("\t 2 - Calcular volume de solidos geometricos"); 
       puts("\t 3 - Conversao de medidas");
-      puts("\t 4 - Sair");
+      puts("\t 4 - Calculadora");
+      puts("\t 5 - Sair");
       printf("\n\t\t\t\tOpcao: "); 
       scanf (" %d", &opcao);
       system("cls");
@@ -73,9 +74,21 @@ int menu_conversao_medidas(){
       return opcao;
 }
 
+int menu_calculadora(){
+       int opcao;
+      printf("\n\n********************************************************************************");
+      puts("\n\n\t\t********** CONVERSAO DE MEDIDAS **********");
+      printf("\n********************************************************************************");
+      puts("\n\t\t\t Escolha a opcao desejada");
+      puts("\n Operação:\n");
+      printf(" 1 - Metros para Jardas\n");
+      printf(" 1 - Metros para Jardas\n");
+
+
+      return opcao;
+}
 // MENUS CALCULOS
 void figuras_planas(int opcao){
-      //declaracao das variaveis que serao usadas no switch
       float dia, area, d1, d2, base, alt;
       float A, B, C;
       switch(opcao)    
@@ -169,7 +182,7 @@ void figuras_planas(int opcao){
                   printf("\n\n ******************************* opcao invalida ********************************");
                   printf("\nPressione <ENTER> para retornar ao menu");
                   getch();
-            }           //fecha o "segunda escolha"
+            }
       system("cls");
 }
 
