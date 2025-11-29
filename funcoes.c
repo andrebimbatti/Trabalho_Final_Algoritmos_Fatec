@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 #include "funcoes.h"
 
 #ifndef PI
@@ -31,4 +32,50 @@ float l_gl(float num){float total; total= num*0.2642; return(total);} //funcao q
 float gl_l(float num){float total; total= num/0.2642; return(total);} //funcao que converte galoes em litros
 float kg_lib(float num){float total; total= num*2.20462262; return(total);} //funcao que converte quilos em libras
 float lib_kg(float num){float total; total= num/2.20462262; return(total);}  //funcao que converte libras em quilos
+
+// FUNCOES DE OPERAÇÕES MATEMATICAS
+void soma(){
+    int n1, n2;
+    printf("Digite o primeiro numero: "); scanf("%d", &n1);
+    printf("Digite o segundo numero: "); scanf("%d", &n2);
+    printf("O Resultado e: %d. \nPressione uma tecla para continuar", n1 + n2);getch();
+}
+
+void subtracao(){
+    int n1, n2;
+    printf("Digite o primeiro numero: "); scanf("%d", &n1);
+    printf("Digite o segundo numero: "); scanf("%d", &n2);
+    printf("O Resultado da subtracao e: %d. \nPressione uma tecla para continuar", n1 - n2);getch();
+}
+
+void multiplicacao(){
+    int n1,n2;
+    printf("Digite o primeiro numero: "); scanf("%d", &n1);
+    printf("Digite o segundo numero: "); scanf("%d", &n2);
+    printf("O Resultado da multiplicacao e: %d. \nPressione uma tecla para continuar", n1 * n2);getch();
+}
+
+void divisao(){
+    float n1, n2;
+    printf("Digite o primeiro numero: "); scanf("%f", &n1);
+    printf("Digite o segundo numero: "); scanf("%f", &n2);
+    if(n2 == 0){
+            printf("operacao invalida, nao e possivel dividir por 0\nPressione uma tecla para continuar");getch();
+    }else{
+            printf("O Resultado da divisao e: %.2f. \nPressione uma tecla para continuar", n1 / n2);getch();
+    }  
+}
+
+void restodiv(){
+    int n1,n2, resultado;
+    printf("Digite o primeiro numero: "); scanf("%d", &n1);
+    printf("Digite o segundo numero: "); scanf("%d", &n2);
+    if(n2 == 0){
+        printf("operacao invalida, nao e possivel dividir por 0.\nPressione uma tecla para continuar");getch();
+    }else{
+        printf("O Resto da divisao e: %d. \nPressione uma tecla para continuar", n1 % n2);getch();
+    }
+}
+
+
       

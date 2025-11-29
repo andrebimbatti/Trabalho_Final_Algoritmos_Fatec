@@ -4,23 +4,13 @@
 #include "menus.h"
 #include "funcoes.h"
 
-// MENUS
+// FUNÇÕES UTILITARIAS
 void linhas(int qtde){ int i; for (i = 0; i < qtde; i++) { printf("*"); }}
+void cabecalho(char titulo[70]){linhas(80); printf("\n\n\t\t\t%s\n\n", titulo); linhas(80);}
+void retornar(){printf("\n\n Pressione <ENTER> para retornar ao menu.");getch();}
+void invalida(){ puts(""); linhas(30); printf(" opcao invalida "); linhas(30); retornar();}
 
-void cabecalho(char titulo[70]){
-    linhas(80); printf("\n\n\t\t\t%s\n\n", titulo); linhas(80);
-}
-
-void retornar(){
-      printf("\n\n Pressione <ENTER> para retornar ao menu.");
-      getch();
-}
-
-void invalida(){
-      puts(""); linhas(30); printf(" opcao invalida "); linhas(30);
-      retornar();
-}
-
+// MENUS
 void menu(){
       int opcao;
       do{        
@@ -287,7 +277,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= m_j(num);
                   printf("\n\n\t\t %f m = %f yd", num, result);
-                  printf("\n\n\n\n\n********************************************************************************");
+                  printf("\n\n\n\n\n");linhas(86);
                   retornar(); break;
       
             case 2:
@@ -296,7 +286,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= j_m(num);
                   printf("\n\n\t\t %f yd = %f m", num, result);
-                  printf("\n\n\n\n\n********************************************************************************");
+                  printf("\n\n\n\n\n");linhas(86);
                   retornar(); break;
             
             case 3:
@@ -305,7 +295,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= cmcub_polcub(num);
                   printf("\n\n\t\t %f cm3 = %f in3", num, result);
-                  printf("\n\n********************************************************************************");
+                  printf("\n\n");linhas(86);
                   retornar(); break;
       
             case 4:
@@ -314,7 +304,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= polcub_cmcub(num);
                   printf("\n\n\t\t %f in3 = %f cm3", num, result);
-                  printf("\n\n********************************************************************************");
+                  printf("\n\n");linhas(86);
                   retornar(); break;
 
             case 5:
@@ -323,7 +313,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= l_gl(num);
                   printf("\n\n\t\t %f L = %f gal", num, result);
-                  printf("\n\n********************************************************************************");
+                  printf("\n\n");linhas(86);
                   retornar(); break;
             
             case 6:
@@ -332,7 +322,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= gl_l(num);
                   printf("\n\n\t\t %f gal = %f L", num, result);
-                  printf("\n\n********************************************************************************");
+                  printf("\n\n");linhas(86);
                   retornar(); break;
             
             case 7:
@@ -341,7 +331,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= kg_lib(num);
                   printf("\n\n\t\t %f kg = %f lb", num, result);
-                  printf("\n\n********************************************************************************");
+                  printf("\n\n");linhas(86);
                   retornar(); break;                                                                                                               
             
             case 8:
@@ -350,7 +340,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= lib_kg(num);
                   printf("\n\n\t\t %f lb = %f kg", num, result);
-                  printf("\n\n********************************************************************************");
+                  printf("\n\n");linhas(86);
                   retornar(); break;
             
             case 0:
@@ -363,56 +353,34 @@ void conversao_medidas(int opcao){
 }
 
 void operacoes_matematicas(int opcao){
-      float n1, n2, resultado;
       switch (opcao)
       {
       case 1:
-            printf("Digite o primeiro numero: "); scanf("%f", &n1);
-            printf("Digite o segundo numero: "); scanf("%f", &n2);
-            resultado = n1 + n2;
-            printf("O Resultado e: %.2f. \nPressione uma tecla para continuar", resultado);getch();
+            soma();
             break;
 
       case 2:
-            printf("Digite o primeiro numero: "); scanf("%f", &n1);
-            printf("Digite o segundo numero: "); scanf("%f", &n2);
-            resultado = n1 - n2;
-            printf("O Resultado da subtracao e: %.2f. \nPressione uma tecla para continuar", resultado);getch();
+            subtracao();
             break;
 
       case 3:
-            printf("Digite o primeiro numero: "); scanf("%f", &n1);
-            printf("Digite o segundo numero: "); scanf("%f", &n2);
-            resultado = n1 * n2;
-            printf("O Resultado da multiplicacao e: %.2f. \nPressione uma tecla para continuar", resultado);getch();
+            multiplicacao();
             break;
 
       case 4:
-            printf("Digite o primeiro numero: "); scanf("%f", &n1);
-            printf("Digite o segundo numero: "); scanf("%f", &n2);
-            if(n2 == 0){
-                  printf("operacao invalida, nao é possivel dividir por 0");
-            }else{
-                  resultado = n1 / n2;
-                  printf("O Resultado da divisao e: %.2f. \nPressione uma tecla para continuar", resultado);getch();
-            }       
+            divisao();
             break;
 
       case 5:
-            printf("Digite o primeiro numero: "); scanf("%f", &n1);
-            printf("Digite o segundo numero: "); scanf("%f", &n2);
-            if(n2 == 0){
-                  printf("operacao invalida, nao é possivel dividir por 0");
-            }else{
-                  resultado = (int)n1 % (int)n2;
-                  printf("O Resto da divisao e: %d. \nPressione uma tecla para continuar", resultado);getch();
-            }
+            restodiv();
             break;
 
       case 0:
             break;
       
       default:
-            invalida(); break;
+            invalida();
+            break;
       }
+      system("cls");
 }

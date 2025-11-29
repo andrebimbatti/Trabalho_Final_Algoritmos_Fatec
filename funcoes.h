@@ -1,3 +1,4 @@
+// FUNCOES AREAS
 float circulo(float dia);
 float losango(float D1,float D2);
 float paralelogramo(float alt, float base);
@@ -21,3 +22,10 @@ float l_gl(float num);
 float gl_l(float num);
 float kg_lib(float num);
 float lib_kg(float num);
+
+//OPERAÇÕES MATEMATICAS
+void soma();
+void subtracao();
+void multiplicacao();
+void divisao();
+void restodiv();
