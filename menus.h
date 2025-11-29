@@ -1,5 +1,8 @@
 //Menus
-void cabecalho(char titulo[50]);
+void linhas(int qtde);
+void cabecalho(char titulo[70]);
+void retornar();
+void invalida();
 void menu();
 int menu_principal();
 int menu_figuras_planas();

@@ -5,11 +5,20 @@
 #include "funcoes.h"
 
 // MENUS
+void linhas(int qtde){ int i; for (i = 0; i < qtde; i++) { printf("*"); }}
+
 void cabecalho(char titulo[70]){
-    int i;
-    for (i = 0; i < 80; i++) { printf("*"); }
-    printf("\n\n\t\t\t%s\n\n", titulo);
-    for (i = 0; i < 80; i++) { printf("*"); }
+    linhas(80); printf("\n\n\t\t\t%s\n\n", titulo); linhas(80);
+}
+
+void retornar(){
+      printf("\n\n Pressione <ENTER> para retornar ao menu.");
+      getch();
+}
+
+void invalida(){
+      puts(""); linhas(30); printf(" opcao invalida "); linhas(30);
+      retornar();
 }
 
 void menu(){
@@ -52,8 +61,7 @@ void menu(){
                         break;
                               
                   default:
-                        printf ("\n\n ******************************* opcao invalida ********************************");
-                        printf ("Pressione <ENTER> para retornar ao menu");
+                        invalida();
             }
             system("cls");
              
@@ -149,9 +157,8 @@ void figuras_planas(int opcao){
                   scanf(" %f", &dia);
                   area= circulo(dia);
                   printf("\n\n\n\n\n\t>>>  A area do circulo e %f", area);
-                  printf("\n\n\n********************************************************************************");
-                  printf("\n\n Pressione <ENTER> para retornar ao menu.");
-                  getch(); break;
+                  printf("\n\n\n");linhas(84);
+                  retornar(); break;
                   
             case 2:
                   cabecalho("2. AREA DO LOSANGO");
@@ -159,9 +166,8 @@ void figuras_planas(int opcao){
                   printf("\n\tDigite a diagonal 2: "); scanf(" %f", &d2);
                   area= losango(d1,d2);
                   printf("\n\n\t>>>  A area do losango e %f", area);
-                  printf("\n\n\n********************************************************************************");
-                  printf("\n\n Pressione <ENTER> para retornar ao menu.");
-                  getch(); break;
+                  printf("\n\n\n");linhas(84);
+                  retornar(); break;
             
             case 3:
                   cabecalho("3. AREA DO PARALELOGRAMO");
@@ -169,9 +175,8 @@ void figuras_planas(int opcao){
                   printf("\n\tDigite a altura: "); scanf(" %f", &alt);
                   area=paralelogramo(base,alt);
                   printf("\n\n\t>>> A area do paralelogramo e %f", area);
-                  printf("\n\n\n\n********************************************************************************");
-                  printf("\n\n Pressione <ENTER> para retornar ao menu.");
-                  getch(); break;
+                  printf("\n\n\n\n");linhas(84);
+                  retornar(); break;
                   
             case 4:
                   cabecalho("4. AREA DO TRAPEZIO");
@@ -180,9 +185,8 @@ void figuras_planas(int opcao){
                   printf("\n\tDigite a altura: "); scanf(" %f", &alt);
                   area=trapezio(B,base,alt);
                   printf("\n\n\t>>> A area do trapezio e: %f", area);
-                  printf("\n\n********************************************************************************");
-                  printf("\n\n Pressione <ENTER> para retornar ao menu.");
-                  getch(); break;
+                  printf("\n\n\n\n");linhas(84); 
+                  retornar(); break;
             
             case 5:
                   cabecalho("5. AREA DO TRIANGULO");
@@ -194,34 +198,30 @@ void figuras_planas(int opcao){
                   {
                         area=tri_equi(A);
                         printf(" \n\n\n\t\tTriangulo Equilatero >>> area: %f", area);
-                        printf("\n\n********************************************************************************");
-                        printf("\n\n Pressione <ENTER> para retornar ao menu."); getch();
+                        printf("\n\n");linhas(84); 
+                        retornar();
                   
                   }
                   else if(A==B || A==C || B==C)
                   {
                         area=tri(A,B);
                         printf("\n\n\n\t\tTriangulo Isosceles >>> area: %f", area);
-                        printf("\n\n********************************************************************************");      
-                        printf("\n\n Pressione <ENTER> para retornar ao menu.");
-                        getch();
+                        printf("\n\n");linhas(84); 
+                        retornar();
                   } 
                   else
                   {
                         area=tri(A,B);
                         printf("\n\n\n\t\tTriangulo Escaleno >>> area: %f", area);
-                        printf("\n\n********************************************************************************");
-                        printf("\n\n Pressione <ENTER> para retornar ao menu.");
-                        getch();
+                        printf("\n\n");linhas(84); 
+                        retornar();
                   }
                   break;
             case 0: 
                   break;
                   
             default:
-                  printf("\n\n ******************************* opcao invalida ********************************");
-                  printf("\nPressione <ENTER> para retornar ao menu");
-                  getch();
+                  invalida();
             }
       system("cls");
 }
@@ -235,9 +235,8 @@ void geometricos(int opcao){
                   printf("\nDigite o diametro: "); scanf(" %f", &dia);
                   vol=esf(dia);         
                   printf("\n\n\n\t>>> O volume da esfera e %f.",  vol);
-                  printf("\n\n\n********************************************************************************");
-                  printf("\n\n Pressione <ENTER> para retornar ao menu.");
-                  getch(); break;
+                  linhas(84);
+                  retornar(); break;
                   
             case 2:
                   cabecalho("2. VOLUME DO CONE CIRCULAR");
@@ -245,9 +244,8 @@ void geometricos(int opcao){
                   printf("\n\tDigite altura:  "); scanf(" %f",&alt);
                   vol=cone(dia,alt); 
                   printf("\n\t>>> O volume do cone circular e %f.", vol );
-                  printf("\n\n\n********************************************************************************");
-                  printf("\n\n Pressione <ENTER> para retornar ao menu.");
-                  getch(); break;
+                  linhas(84);
+                  retornar(); break;
                         
             case 3:
                   cabecalho("3. VOLUME CILINDRO");
@@ -255,9 +253,8 @@ void geometricos(int opcao){
                   printf("\n\tDigite altura:  "); scanf(" %f",&alt);
                   vol= cilindro(dia,alt);
                   printf("\n\t>>>O volume do cilindro e %f", vol);
-                  printf("\n\n\n********************************************************************************");
-                  printf("\n\n Pressione <ENTER> para retornar ao menu.");
-                  getch(); break;
+                  linhas(84);
+                  retornar(); break;
                   
             case 4:
                   cabecalho("4. VOLUME DO PARALELEPIPEDO");
@@ -266,9 +263,8 @@ void geometricos(int opcao){
                   printf("\n\tDigite a altura:  "); scanf(" %f",&alt);
                   vol=paral(comp, larg, alt);
                   printf("\n\t>>>O volume do paralelepipedo e %f.",vol);
-                  printf("\n\n\n********************************************************************************");
-                  printf("\n\n Pressione <ENTER> para retornar ao menu.");
-                  getch(); break;
+                  linhas(84);
+                  retornar(); break;
             
             case 0:
                   break;       
@@ -292,8 +288,7 @@ void conversao_medidas(int opcao){
                   result= m_j(num);
                   printf("\n\n\t\t %f m = %f yd", num, result);
                   printf("\n\n\n\n\n********************************************************************************");
-                  printf("\n\n Pressione <ENTER> para retornar ao menu.");
-                  getch(); break;
+                  retornar(); break;
       
             case 2:
                   cabecalho("2. JARDAS EM METROS");
@@ -302,8 +297,7 @@ void conversao_medidas(int opcao){
                   result= j_m(num);
                   printf("\n\n\t\t %f yd = %f m", num, result);
                   printf("\n\n\n\n\n********************************************************************************");
-                  printf("\n\n Pressione <ENTER> para retornar ao menu.");
-                  getch(); break;
+                  retornar(); break;
             
             case 3:
                   cabecalho("3. CENTIMETROS CUBICOS EM POLEGADAS CUBICAS");         
@@ -312,8 +306,7 @@ void conversao_medidas(int opcao){
                   result= cmcub_polcub(num);
                   printf("\n\n\t\t %f cm3 = %f in3", num, result);
                   printf("\n\n********************************************************************************");
-                  printf("\n\n Pressione <ENTER> para retornar ao menu.");
-                  getch(); break;
+                  retornar(); break;
       
             case 4:
                   cabecalho("4. POLEGADAS CUBICAS EM CENTIMETROS CUBICOS");
@@ -322,8 +315,7 @@ void conversao_medidas(int opcao){
                   result= polcub_cmcub(num);
                   printf("\n\n\t\t %f in3 = %f cm3", num, result);
                   printf("\n\n********************************************************************************");
-                  printf("\n\n Pressione <ENTER> para retornar ao menu.");
-                  getch(); break;
+                  retornar(); break;
 
             case 5:
                   cabecalho("5. LITROS EM GALOES");
@@ -332,8 +324,7 @@ void conversao_medidas(int opcao){
                   result= l_gl(num);
                   printf("\n\n\t\t %f L = %f gal", num, result);
                   printf("\n\n********************************************************************************");
-                  printf("\n\n Pressione <ENTER> para retornar ao menu.");
-                  getch(); break;
+                  retornar(); break;
             
             case 6:
                   cabecalho("6. GALOES EM LITROS");
@@ -342,8 +333,7 @@ void conversao_medidas(int opcao){
                   result= gl_l(num);
                   printf("\n\n\t\t %f gal = %f L", num, result);
                   printf("\n\n********************************************************************************");
-                  printf("\n\n Pressione <ENTER> para retornar ao menu.");
-                  getch(); break;
+                  retornar(); break;
             
             case 7:
                   cabecalho("7. QUILOGRAMAS EM LIBRAS");
@@ -352,8 +342,7 @@ void conversao_medidas(int opcao){
                   result= kg_lib(num);
                   printf("\n\n\t\t %f kg = %f lb", num, result);
                   printf("\n\n********************************************************************************");
-                  printf("\n\n Pressione <ENTER> para retornar ao menu.");
-                  getch(); break;                                                                                                               
+                  retornar(); break;                                                                                                               
             
             case 8:
                   cabecalho("8. LIBRAS EM QUILOGRAMAS");
@@ -362,15 +351,13 @@ void conversao_medidas(int opcao){
                   result= lib_kg(num);
                   printf("\n\n\t\t %f lb = %f kg", num, result);
                   printf("\n\n********************************************************************************");
-                  printf("\n\n Pressione <ENTER> para retornar ao menu.");
-                  getch(); break;
+                  retornar(); break;
             
-            case 0:break;
-                        
+            case 0:
+                  break;
+        
             default:
-            printf ("\n\n ******************************* opcao invalida ********************************");
-            printf ("Pressione <ENTER> para retornar ao menu");
-            getch();
+            invalida();
       }
       system("cls");
 }
@@ -385,18 +372,21 @@ void operacoes_matematicas(int opcao){
             resultado = n1 + n2;
             printf("O Resultado e: %.2f. \nPressione uma tecla para continuar", resultado);getch();
             break;
+
       case 2:
             printf("Digite o primeiro numero: "); scanf("%f", &n1);
             printf("Digite o segundo numero: "); scanf("%f", &n2);
             resultado = n1 - n2;
             printf("O Resultado da subtracao e: %.2f. \nPressione uma tecla para continuar", resultado);getch();
             break;
+
       case 3:
             printf("Digite o primeiro numero: "); scanf("%f", &n1);
             printf("Digite o segundo numero: "); scanf("%f", &n2);
             resultado = n1 * n2;
             printf("O Resultado da multiplicacao e: %.2f. \nPressione uma tecla para continuar", resultado);getch();
             break;
+
       case 4:
             printf("Digite o primeiro numero: "); scanf("%f", &n1);
             printf("Digite o segundo numero: "); scanf("%f", &n2);
@@ -405,9 +395,9 @@ void operacoes_matematicas(int opcao){
             }else{
                   resultado = n1 / n2;
                   printf("O Resultado da divisao e: %.2f. \nPressione uma tecla para continuar", resultado);getch();
-            }
-            
+            }       
             break;
+
       case 5:
             printf("Digite o primeiro numero: "); scanf("%f", &n1);
             printf("Digite o segundo numero: "); scanf("%f", &n2);
@@ -418,13 +408,11 @@ void operacoes_matematicas(int opcao){
                   printf("O Resto da divisao e: %d. \nPressione uma tecla para continuar", resultado);getch();
             }
             break;
+
       case 0:
             break;
       
       default:
-            printf ("\n\n ******************************* opcao invalida ********************************");
-            printf ("Pressione <ENTER> para retornar ao menu");
-            getch();
-            break;
+            invalida(); break;
       }
 }
