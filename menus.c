@@ -286,7 +286,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= j_m(num);
                   printf("\n\n\t\t %f yd = %f m", num, result);
-                  printf("\n\n\n\n\n");linhas(86);
+                  printf("\n\n\n\n\n");
                   retornar(); break;
             
             case 3:
@@ -295,7 +295,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= cmcub_polcub(num);
                   printf("\n\n\t\t %f cm3 = %f in3", num, result);
-                  printf("\n\n");linhas(86);
+                  printf("\n\n");
                   retornar(); break;
       
             case 4:
@@ -304,7 +304,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= polcub_cmcub(num);
                   printf("\n\n\t\t %f in3 = %f cm3", num, result);
-                  printf("\n\n");linhas(86);
+                  printf("\n\n");
                   retornar(); break;
 
             case 5:
@@ -313,7 +313,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= l_gl(num);
                   printf("\n\n\t\t %f L = %f gal", num, result);
-                  printf("\n\n");linhas(86);
+                  printf("\n\n");
                   retornar(); break;
             
             case 6:
@@ -322,7 +322,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= gl_l(num);
                   printf("\n\n\t\t %f gal = %f L", num, result);
-                  printf("\n\n");linhas(86);
+                  printf("\n\n");
                   retornar(); break;
             
             case 7:
@@ -331,7 +331,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= kg_lib(num);
                   printf("\n\n\t\t %f kg = %f lb", num, result);
-                  printf("\n\n");linhas(86);
+                  printf("\n\n");
                   retornar(); break;                                                                                                               
             
             case 8:
@@ -340,7 +340,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= lib_kg(num);
                   printf("\n\n\t\t %f lb = %f kg", num, result);
-                  printf("\n\n");linhas(86);
+                  printf("\n\n");
                   retornar(); break;
             
             case 0:
