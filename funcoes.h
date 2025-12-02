@@ -1,4 +1,4 @@
-// FUNCOES AREAS
+// FUNÇOES PARA CALCULO DE ÁREA
 float circulo(float dia);
 float losango(float D1,float D2);
 float paralelogramo(float alt, float base);

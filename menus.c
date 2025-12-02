@@ -10,6 +10,42 @@ void cabecalho(char titulo[70]){linhas(80); printf("\n\n\t\t\t%s\n\n", titulo); 
 void retornar(){printf("\n\n Pressione <ENTER> para retornar ao menu.");getch();}
 void invalida(){ puts(""); linhas(30); printf(" opcao invalida "); linhas(30); retornar();}
 
+
+// CHAMA MENUS
+
+void chama_figuras_planas(){
+      int opcao;
+      do{
+            opcao= menu_figuras_planas();
+            figuras_planas(opcao);
+      }while (opcao!=0);
+}
+
+void chama_geometricos(){
+      int opcao;
+      do{
+            opcao = menu_geometricos();
+            geometricos(opcao);
+      }while(opcao!=0);
+}
+
+void chama_conversao(){
+      int opcao;
+      do       
+      {
+            opcao = menu_conversao_medidas();
+            conversao_medidas(opcao);
+      } while(opcao!=0);
+}
+
+void chama_operacoes(){
+      int opcao;
+      do{
+            opcao = menu_operacoes_matematicas();
+            operacoes_matematicas(opcao);
+      }while(opcao!=0);
+}
+
 // MENUS
 void menu(){
       int opcao;
@@ -18,33 +54,18 @@ void menu(){
             switch (opcao)
             {                 
                   case 1:
-                        do{
-                              opcao= menu_figuras_planas();
-                              figuras_planas(opcao);
-                        }while (opcao!=0);
+                        chama_figuras_planas();
                         break;
                   
                   case 2:    
-                        do        
-                        {
-                              opcao = menu_geometricos();
-                              geometricos(opcao);
-                        }while(opcao!=0);
+                        chama_geometricos();
                         break;   
                   
                   case 3:
-                        do       
-                        {
-                              opcao = menu_conversao_medidas();
-                              conversao_medidas(opcao);
-                        } while(opcao!=0);
+                        chama_conversao();
                         break;
                   case 4:   
-                        do       
-                        {
-                              opcao = menu_operacoes_matematicas();
-                              operacoes_matematicas(opcao);
-                        }while(opcao!=0);
+                        chama_operacoes();
                         break;
                         
                   case 5:
@@ -134,6 +155,31 @@ int menu_operacoes_matematicas(){
       return opcao;
 }
 
+void verifica_triangulo(float A, float B, float C){
+      float area;
+      if(A==B && B==C)      
+      {
+            area=tri_equi(A);
+            printf(" \n\n\n\t\tTriangulo Equilatero >>> area: %f", area);
+            printf("\n\n");linhas(84); 
+            retornar();
+      
+      }
+      else if(A==B || A==C || B==C)
+      {
+            area=tri(A,B);
+            printf("\n\n\n\t\tTriangulo Isosceles >>> area: %f", area);
+            printf("\n\n");linhas(84); 
+            retornar();
+      } 
+      else
+      {
+            area=tri(A,B);
+            printf("\n\n\n\t\tTriangulo Escaleno >>> area: %f", area);
+            printf("\n\n");linhas(84); 
+            retornar();
+      }
+}
 
 // MENUS CALCULOS
 void figuras_planas(int opcao){
@@ -183,30 +229,9 @@ void figuras_planas(int opcao){
                   printf("\n\tDigite o lado A do triangulo: "); scanf(" %f", &A);
                   printf("\n\tDigite o lado B do triangulo: "); scanf(" %f", &B);
                   printf("\n\tDigite o lado C do triangulo: "); scanf(" %f", &C);
-                  
-                  if(A==B && B==C)
-                  {
-                        area=tri_equi(A);
-                        printf(" \n\n\n\t\tTriangulo Equilatero >>> area: %f", area);
-                        printf("\n\n");linhas(84); 
-                        retornar();
-                  
-                  }
-                  else if(A==B || A==C || B==C)
-                  {
-                        area=tri(A,B);
-                        printf("\n\n\n\t\tTriangulo Isosceles >>> area: %f", area);
-                        printf("\n\n");linhas(84); 
-                        retornar();
-                  } 
-                  else
-                  {
-                        area=tri(A,B);
-                        printf("\n\n\n\t\tTriangulo Escaleno >>> area: %f", area);
-                        printf("\n\n");linhas(84); 
-                        retornar();
-                  }
+                  verifica_triangulo(A, B, C);
                   break;
+
             case 0: 
                   break;
                   
@@ -260,9 +285,7 @@ void geometricos(int opcao){
                   break;       
 
             default:
-                  printf ("\n\n ******************************* opcao invalida ********************************");
-                  printf ("Pressione <ENTER> para retornar ao menu");
-                  getch();
+                  invalida();
             }
       system("cls");
 }
@@ -286,7 +309,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= j_m(num);
                   printf("\n\n\t\t %f yd = %f m", num, result);
-                  printf("\n\n\n\n\n");
+                  printf("\n\n\n\n\n");linhas(86);
                   retornar(); break;
             
             case 3:
@@ -295,7 +318,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= cmcub_polcub(num);
                   printf("\n\n\t\t %f cm3 = %f in3", num, result);
-                  printf("\n\n");
+                  printf("\n\n");linhas(86);
                   retornar(); break;
       
             case 4:
@@ -304,7 +327,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= polcub_cmcub(num);
                   printf("\n\n\t\t %f in3 = %f cm3", num, result);
-                  printf("\n\n");
+                  printf("\n\n");linhas(86);
                   retornar(); break;
 
             case 5:
@@ -313,7 +336,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= l_gl(num);
                   printf("\n\n\t\t %f L = %f gal", num, result);
-                  printf("\n\n");
+                  printf("\n\n");linhas(86);
                   retornar(); break;
             
             case 6:
@@ -322,7 +345,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= gl_l(num);
                   printf("\n\n\t\t %f gal = %f L", num, result);
-                  printf("\n\n");
+                  printf("\n\n");linhas(86);
                   retornar(); break;
             
             case 7:
@@ -331,7 +354,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= kg_lib(num);
                   printf("\n\n\t\t %f kg = %f lb", num, result);
-                  printf("\n\n");
+                  printf("\n\n");linhas(86);
                   retornar(); break;                                                                                                               
             
             case 8:
@@ -340,7 +363,7 @@ void conversao_medidas(int opcao){
                   scanf(" %f", &num);
                   result= lib_kg(num);
                   printf("\n\n\t\t %f lb = %f kg", num, result);
-                  printf("\n\n");
+                  printf("\n\n");linhas(86);
                   retornar(); break;
             
             case 0:
